@@ -1,12 +1,7 @@
 import ReactNativeAppClipModule from "./ReactNativeAppClipModule";
 
 export function isClip(): boolean {
-  const bundleIdentifier = ReactNativeAppClipModule.getBundleIdentifier() as
-    | string
-    | undefined;
-  const isClip =
-    bundleIdentifier?.slice(bundleIdentifier.lastIndexOf(".") + 1) === "Clip";
-  return isClip;
+  return ReactNativeAppClipModule.getIsClip as boolean;
 }
 
 export function getContainerURL(groupIdentifier: string): string {

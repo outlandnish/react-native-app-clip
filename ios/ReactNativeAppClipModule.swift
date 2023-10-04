@@ -74,9 +74,12 @@ public class ReactNativeAppClipModule: Module {
             }
         }.runOnQueue(DispatchQueue.main)
         
-        Function("getBundleIdentifier") { () -> String? in
-            let bundleIdentifier = Bundle.main.bundleIdentifier
-            return bundleIdentifier
+        Function("getBundleIdentifier") { () -> Bool? in
+            #if APPCLIP 
+            return true
+            #else
+            return false
+            #endif
         }
     }
 }
